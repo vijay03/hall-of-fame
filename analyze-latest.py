@@ -4,6 +4,10 @@ import operator
 import pickle
 import time
 
+# Same as analyze-markdown, but leaves out authors who have not
+# published in the last 5 years. It creates a more "recent" hall of
+# fame.
+
 sosp_file = open("sosp.data", 'rb')
 osdi_file = open("osdi.data", 'rb')
 total_file = open("total.data", 'rb')
@@ -26,6 +30,7 @@ last5 = datetime.datetime.now().year - 5
 #sorted_x = sorted(osdi.items(), key=operator.itemgetter(1), reverse=True)
 sorted_x = sorted(total.items(), key=lambda x: (-x[1], x[0].split()[-1]))
 
+# My Google Analytics code. Please change to your own when deploying.
 print "<!-- Google Analytics Code -->\
 <script type='text/javascript'>\
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\
@@ -81,11 +86,6 @@ for x,c in sorted_x:
             mprint(i, rank, x, c, total5.get(x, 0))
             i += 1
 
-    #
-    #if x in ["Vijay Chidambaram", "Simon Peter", "Christopher J. Rossbach", "Taesoo Kim", "Xi Wang", "Marcos K. Aguilera", "Michael M. Swift", "Ding Yuan"]:
-    #    mprint(rank, x, c)
-        
-    #i += 1
     prev_c = c
 
 print 
