@@ -3,6 +3,8 @@ import dblp
 import operator
 import pickle
 
+# Dicts to store conference data. I'm focussing on SOSP and OSDI for
+# these scripts.
 sosp = {}
 osdi = {}
 total = {}
@@ -12,6 +14,10 @@ last5 = datetime.datetime.now().year - 5
 next_year = datetime.datetime.now().year + 1
 print last5
 
+# Get publication data from DBLP for each version of the
+# conference. You might have to poke around DBLP XML entries for your
+# conference to identify the "crossref" (conf/sosp) and "booktitle"
+# (SOSP) for the conference you are interested in
 for y in range(1969, next_year, 2):
     print "SOSP", y
     a = dblp.getvenueauthors("/conf/sosp/" + str(y), "SOSP")
@@ -44,4 +50,3 @@ sosp_file.close()
 osdi_file.close()
 total_file.close()
 total_5_file.close()
-

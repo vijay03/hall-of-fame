@@ -6,6 +6,8 @@ import operator
 import pickle
 import time
 
+# Open up the author and publication information previously stored in
+# pickled files.
 authors_file = open("authors.data", 'rb')
 sosp_file = open("sosp.data", 'rb')
 osdi_file = open("osdi.data", 'rb')
@@ -26,13 +28,17 @@ authors_file.close()
 
 last5 = datetime.datetime.now().year - 5
 
-# choose here whether sosp or osdi or both        
+# choose here whether sosp or osdi or both
+# sorted_x then contains the data that we care about
+
 #sorted_x = sorted(sosp.items(), key=operator.itemgetter(1), reverse=True)
 #sorted_x = sorted(osdi.items(), key=operator.itemgetter(1), reverse=True)
 sorted_x = sorted(total.items(), key=lambda x: (-x[1], x[0].split()[-1]))
 
 mypadding = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 
+# Google analytics code for my website. You should change this to your
+# analytics information.
 print "<!-- Google Analytics Code -->\
 <script type='text/javascript'>\
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\
@@ -44,6 +50,10 @@ print "<!-- Google Analytics Code -->\
   ga('send', 'pageview');\
 </script>\
 <!-- End of Google Analytics Code -->"
+
+# Header for the hall of fame. Change this to suit whatever conference
+# you are targetting.  Please retain a link to this repo, to DBLP, and
+# to CSRankings.
 
 print "<title>Systems Research: Hall of Fame</title>"
 print "##Systems Research: Hall of Fame"
@@ -68,6 +78,7 @@ print "*Reflects data up-to SOSP 17.*"
 print "Author \#&nbsp;&nbsp;&nbsp;&nbsp;|Rank&nbsp;&nbsp;|Name|Num. of Papers|&nbsp;&nbsp;Num. of Papers Since " + str(last5) + "|" + mypadding + "Last-Known Affiliation"
 print "|:----:|:----|:--------| ----:|----:|:----"
 
+# The function that prints each author
 def mprint(i, rank, x, c, c5):
     ans = "|" + str(i) + "|" + str(rank) + "|" + u''.join((x, "|", str(c) ,"|", str(c5))).encode('ascii', 'xmlcharrefreplace').strip()
     if x in authors:
@@ -81,6 +92,9 @@ i = 1
 count = 0
 prev_c = -1
 rank = 1
+
+# Go through the sorted publication counts for each author and print
+# the information into HTML
 for x,c in sorted_x:
     if c == prev_c:
         count += 1
@@ -94,12 +108,7 @@ for x,c in sorted_x:
     if rank <= 101:
         mprint(i, rank, x, c, total5.get(x, 0))
 
-    #
-    #if x in ["Vijay Chidambaram", "Simon Peter", "Christopher J. Rossbach", "Taesoo Kim", "Xi Wang", "Marcos K. Aguilera", "Michael M. Swift", "Ding Yuan"]:
-    #    mprint(rank, x, c)
-        
     i += 1
     prev_c = c
 
 print 
-
