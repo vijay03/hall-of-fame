@@ -15,7 +15,7 @@ Prof. Emery Berger's [CSRankings](http://csrankings.org).
 
 `analyze-markdown.py` creates a Markdown file for the Hall of Fame. You must then use `showdown` to convert it to HTML.
 
-`analyze-markdown.py` creates a Hall of Fame that excludes authors who have not published in the last five years.
+`analyze-latest.py` creates a Hall of Fame that excludes authors who have not published in the last five years.
 
 `make` does all of this (except getting the `faculty-affiliations.csv`) automatically for you,
 and opens the final `top.html` for you to see the Hall of Fame.
