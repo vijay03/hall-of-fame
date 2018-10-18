@@ -58,7 +58,7 @@ print "and [MICRO Hall of Fame](http://newsletter.sigmicro.org/micro-hof.txt/vie
 print
 print "*Updated: " + time.strftime("%d/%m/%Y") + "*."
 print
-print "*Reflects data upto OSDI 16.*"
+print "*Reflects data upto OSDI 18.*"
 
 print "Author \#|Rank|Name|Num. of Papers|&nbsp;&nbsp;Num. of Papers Since " + str(last5)
 print "|:----:|:----|:--------| ----:|----:"

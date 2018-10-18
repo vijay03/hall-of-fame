@@ -73,7 +73,7 @@ print "and [MICRO Hall of Fame](http://newsletter.sigmicro.org/micro-hof.txt/vie
 print
 print "*Updated: " + time.strftime("%d/%m/%Y") + "*."
 print
-print "*Reflects data up-to SOSP 17.*"
+print "*Reflects data up-to OSDI 18.*"
 
 print "Author \#&nbsp;&nbsp;&nbsp;&nbsp;|Rank&nbsp;&nbsp;|Name|Num. of Papers|&nbsp;&nbsp;Num. of Papers Since " + str(last5) + "|" + mypadding + "Last-Known Affiliation"
 print "|:----:|:----|:--------| ----:|----:|:----"
