@@ -9,6 +9,9 @@ sosp = {}
 osdi = {}
 total = {}
 total5 = {}
+author_meta = {}
+
+cur_year = datetime.datetime.now().year
 
 last5 = datetime.datetime.now().year - 5
 next_year = datetime.datetime.now().year + 1

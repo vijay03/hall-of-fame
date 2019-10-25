@@ -55,8 +55,8 @@ print "<!-- Google Analytics Code -->\
 # you are targetting.  Please retain a link to this repo, to DBLP, and
 # to CSRankings.
 
-print "<title>Systems Research: Hall of Fame</title>"
-print "##Systems Research: Hall of Fame"
+print "<title>Systems Research: SOSP/OSDI Hall of Fame</title>"
+print "##Systems Research: SOSP/OSDI Hall of Fame"
 
 print "Authors are ranked by total number of SOSP and OSDI papers (the top conferences for systems research). Authors with same number of papers have the same rank."
 print
@@ -73,14 +73,29 @@ print "and [MICRO Hall of Fame](http://newsletter.sigmicro.org/micro-hof.txt/vie
 print
 print "*Updated: " + time.strftime("%d/%m/%Y") + "*."
 print
-print "*Reflects data up-to OSDI 18.*"
+print "*Reflects data up-to SOSP 19.*"
 
 print "Author \#&nbsp;&nbsp;&nbsp;&nbsp;|Rank&nbsp;&nbsp;|Name|Num. of Papers|&nbsp;&nbsp;Num. of Papers Since " + str(last5) + "|" + mypadding + "Last-Known Affiliation"
 print "|:----:|:----|:--------| ----:|----:|:----"
 
 # The function that prints each author
 def mprint(i, rank, x, c, c5):
-    ans = "|" + str(i) + "|" + str(rank) + "|" + u''.join((x, "|", str(c) ,"|", str(c5))).encode('ascii', 'xmlcharrefreplace').strip()
+    flame_bar = "&nbsp;"
+    for f in range(0, c5/5):
+        flame_bar += "&#128293;";
+    flame_bar +="|"
+
+    ans = "|" + str(i) + "|" + str(rank) + "|" + u''.join((x, flame_bar, str(c) ,"|", str(c5))).encode('ascii', 'xmlcharrefreplace').strip()
+
+    '''
+    if c5 >= 10:
+        ans = "|" + str(i) + "|" + str(rank) + "|" + u''.join((x, "&nbsp;&#128293;&#128293;|", str(c) ,"|", str(c5))).encode('ascii', 'xmlcharrefreplace').strip()
+    elif c5 >= 5:
+        ans = "|" + str(i) + "|" + str(rank) + "|" + u''.join((x, "&nbsp;&#128293;|", str(c) ,"|", str(c5))).encode('ascii', 'xmlcharrefreplace').strip()
+    else:
+        ans = "|" + str(i) + "|" + str(rank) + "|" + u''.join((x, "|", str(c) ,"|", str(c5))).encode('ascii', 'xmlcharrefreplace').strip()
+    '''
+ 
     if x in authors:
         ans += "|" + mypadding + authors[x]
     if x == u"David Mazières":
