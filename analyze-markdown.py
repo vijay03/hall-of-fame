@@ -71,9 +71,11 @@ print
 print "*Inspired by [ISCA Hall of Fame](http://pages.cs.wisc.edu/~arch/www/iscabibhall.html)"
 print "and [MICRO Hall of Fame](http://newsletter.sigmicro.org/micro-hof.txt/view).*"
 print
+print "&#128293; indicates five papers in the last five years"
+print
 print "*Updated: " + time.strftime("%d/%m/%Y") + "*."
 print
-print "*Reflects data up-to SOSP 19.*"
+print "*Reflects data up-to SOSP 21.*"
 
 print "Author \#&nbsp;&nbsp;&nbsp;&nbsp;|Rank&nbsp;&nbsp;|Name|Num. of Papers|&nbsp;&nbsp;Num. of Papers Since " + str(last5) + "|" + mypadding + "Last-Known Affiliation"
 print "|:----:|:----|:--------| ----:|----:|:----"
