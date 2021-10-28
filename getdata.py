@@ -30,7 +30,7 @@ for y in range(1969, next_year, 2):
         if y >= last5:
             total5[x] = total5.get(x, 0) + 1
 
-for y in range(1994, next_year, 2):
+for y in range(1994, 2021, 2):
     print "OSDI", y
     a = dblp.getvenueauthors("/conf/osdi/" + str(y), "OSDI")
     for x in a:
@@ -38,7 +38,17 @@ for y in range(1994, next_year, 2):
         total[x] = total.get(x, 0) + 1
         if y >= last5:
             total5[x] = total5.get(x, 0) + 1
-        
+
+# OSDI becomes annual
+for y in range(2021, next_year, 1):
+    print "OSDI", y
+    a = dblp.getvenueauthors("/conf/osdi/" + str(y), "OSDI")
+    for x in a:
+        osdi[x] = osdi.get(x, 0) + 1
+        total[x] = total.get(x, 0) + 1
+        if y >= last5:
+            total5[x] = total5.get(x, 0) + 1
+            
 sosp_file = open("sosp.data", 'wb')
 osdi_file = open("osdi.data", 'wb')
 total_file = open("total.data", 'wb')
