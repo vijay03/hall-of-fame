@@ -48,6 +48,12 @@ for y in range(2021, next_year, 1):
         total[x] = total.get(x, 0) + 1
         if y >= last5:
             total5[x] = total5.get(x, 0) + 1
+
+#Some manual adjustments
+osdi["Guoqing Harry Xu"] += osdi["Guoqing Xu 0001"]
+sosp["Guoqing Harry Xu"] += sosp["Guoqing Xu 0001"]
+total["Guoqing Harry Xu"] += total["Guoqing Xu 0001"]
+total5["Guoqing Harry Xu"] += total5["Guoqing Xu 0001"]
             
 sosp_file = open("sosp.data", 'wb')
 osdi_file = open("osdi.data", 'wb')

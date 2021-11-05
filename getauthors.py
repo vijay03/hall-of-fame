@@ -84,6 +84,7 @@ authors["Yee Jiun Song"] = "Instabase"
 authors["Chandramohan A. Thekkath"] = "Microsoft Research"
 authors["Shivaram Venkataraman"] = "University of Wisconsin-Madison"
 authors["Yuan Yu"] = "Microsoft"
+authors["Guoqing Harry Xu"] = "UCLA"
 
 if os.path.exists("authors.data"):
     authors_file.close()
